@@ -1,0 +1,57 @@
+Prompt Engineering Basics for RAG Systems
+
+What is prompt engineering
+
+Prompt engineering is the practice of designing the instructions given
+to a language model in order to get more accurate, relevant, and
+consistent outputs. In a RAG system, the prompt typically combines
+three elements: instructions for the model's behavior, the retrieved
+context, and the user's question.
+
+Writing effective RAG prompts
+
+A good RAG prompt should clearly instruct the model to base its
+answer only on the provided context, and to explicitly say it does
+not know the answer if the context doesn't contain enough
+information. Without this instruction, models often fall back on
+their own trained knowledge, which defeats the purpose of retrieval
+and can reintroduce hallucination.
+
+It also helps to keep the instructions concise and specific. Vague
+instructions like "answer the question well" give the model little
+guidance, while specific instructions like "answer in two to three
+sentences using only the facts in the context" produce more
+predictable results.
+
+Temperature and other generation settings
+
+Temperature is a setting that controls how random or deterministic
+the model's output is. A temperature of zero makes the model's
+answers highly consistent and focused, which is usually preferred for
+factual question-answering tasks like RAG. Higher temperatures
+introduce more variety and creativity, which are better suited to
+tasks like brainstorming or creative writing, but not for grounded
+question answering.
+
+Common prompt mistakes
+
+One common mistake is not providing enough context, either because
+too few chunks were retrieved or because the chunk size was too
+small. Another common mistake is providing too much irrelevant
+context, which can dilute the model's attention and lead to less
+focused answers.
+
+A third mistake is failing to test the prompt against edge cases,
+such as questions that cannot be answered from the given documents.
+A well-designed RAG system should gracefully respond with something
+like "I don't have enough information to answer that" rather than
+guessing.
+
+Iterating on prompts
+
+Prompt engineering is rarely a one-shot process. It is common to test
+a prompt against a set of sample questions, observe where the model's
+answers are inaccurate, irrelevant, or overly verbose, and then adjust
+the wording of the instructions accordingly. Keeping a small set of
+test questions on hand, and comparing outputs before and after a
+prompt change, is a reliable way to make measurable improvements.

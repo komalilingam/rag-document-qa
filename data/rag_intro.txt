@@ -1,0 +1,55 @@
+Introduction to Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation, or RAG, is a technique that combines a
+retrieval system with a large language model (LLM) to produce answers
+that are grounded in a specific set of documents, rather than relying
+solely on what the model learned during training.
+
+How RAG works
+
+A RAG system has three main stages. First, in the ingestion stage,
+documents are split into smaller chunks and converted into numerical
+vectors called embeddings. These embeddings are stored in a vector
+database such as FAISS, Chroma, or Pinecone.
+
+Second, in the retrieval stage, when a user asks a question, the
+question itself is converted into an embedding and compared against
+the stored document embeddings. The system returns the chunks that
+are most similar to the question, typically using cosine similarity
+or another distance metric.
+
+Third, in the generation stage, the retrieved chunks are inserted into
+a prompt along with the original question, and this combined prompt
+is sent to an LLM. The LLM then generates an answer based on the
+provided context rather than its own internal memory.
+
+Why RAG matters
+
+RAG reduces hallucination, which is when a language model produces
+information that sounds plausible but is factually incorrect. Because
+the model is instructed to answer only from the retrieved context, it
+is less likely to invent facts, especially when the prompt explicitly
+tells it to say "I don't know" if the answer is not present in the
+context.
+
+RAG also allows an LLM to answer questions about information it was
+never trained on, such as a company's internal documents, a person's
+personal notes, or events that happened after the model's training
+cutoff. This makes RAG especially useful for building assistants over
+private or frequently updated data.
+
+Common challenges
+
+Choosing the right chunk size is one of the trickiest parts of
+building a RAG system. If chunks are too large, irrelevant information
+gets mixed in with relevant information, which can confuse the model.
+If chunks are too small, important context may be split across
+multiple chunks, making it harder for the retriever to find a single
+chunk that fully answers the question.
+
+Evaluation is another challenge. Unlike traditional software, a RAG
+system's quality is measured along several dimensions: whether the
+retrieved chunks are relevant (precision and recall), and whether the
+final answer is faithful to the retrieved context and relevant to the
+question. Frameworks like RAGAS provide automated metrics for these
+dimensions.

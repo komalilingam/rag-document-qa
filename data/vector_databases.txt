@@ -1,0 +1,56 @@
+Vector Databases: A Practical Overview
+
+What is a vector database
+
+A vector database is a specialized system designed to store, index,
+and search high-dimensional numerical vectors, commonly called
+embeddings. Unlike traditional databases that search for exact
+matches or use keyword search, vector databases search for items that
+are semantically similar to a query, even if they don't share any
+exact words in common.
+
+Popular vector database options
+
+FAISS, developed by Facebook AI Research, is an open-source library
+that runs in-memory and is extremely fast for similarity search. It
+is a good choice for smaller projects or prototypes because it
+requires no separate server and can run entirely on a local machine.
+The tradeoff is that if the FAISS index isn't saved to disk, it must
+be rebuilt every time the program restarts.
+
+Chroma is another open-source vector database that is popular for its
+simplicity and ease of integration with LangChain and other RAG
+frameworks. It supports persistent storage out of the box.
+
+Pinecone is a fully managed, cloud-hosted vector database built for
+production workloads. It can scale to billions of vectors and handle
+high query volumes, but unlike FAISS and Chroma, it requires an
+account and is not free for large-scale usage.
+
+How similarity search works
+
+When a document chunk is embedded, it is converted into a vector of
+numbers, typically several hundred dimensions long, that represents
+the semantic meaning of the text. When a user submits a query, the
+query is embedded using the same model, and the vector database
+calculates the distance between the query vector and every stored
+document vector.
+
+The most common distance metrics are cosine similarity, which
+measures the angle between two vectors, and Euclidean distance, which
+measures the straight-line distance between them. The chunks with the
+smallest distance, or highest similarity, to the query are returned
+as the most relevant results.
+
+Choosing an embedding model
+
+The choice of embedding model significantly affects retrieval
+quality. Smaller models such as all-MiniLM-L6-v2 are fast and free to
+run locally but may capture less nuance than larger models. Larger
+models, including those offered by OpenAI or Google, tend to produce
+more accurate embeddings but come with an API cost and added latency.
+
+For a first project, starting with a small, free, local embedding
+model is recommended, since it allows for fast iteration without
+incurring API costs, and the retrieval quality can always be improved
+later by swapping in a larger model.

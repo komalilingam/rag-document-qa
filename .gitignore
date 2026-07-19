@@ -1,0 +1,21 @@
+# Environment variables (contains your API key — never commit this)
+.env
+
+# Virtual environment
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Generated FAISS index (regenerated from data/, no need to commit)
+faiss_index/
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
