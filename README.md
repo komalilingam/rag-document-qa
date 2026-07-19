@@ -178,18 +178,8 @@ streamlit run app.py
 
 Add a screenshot after running the application.
 
-```
-<img width="1894" height="919" alt="image" src="https://github.com/user-attachments/assets/2bb73790-61df-40ba-b737-c208ce9cc51a" />
+![image alt](https://github.com/komalilingam/rag-document-qa/blob/c7a85e29dde41688cabea0500cfecb9cece487dd/app.png)
 
-```
-
-Example:
-
-```md
-![Application Screenshot](screenshots/app.png)
-```
-
----
 
 ## 📊 Evaluation
 
