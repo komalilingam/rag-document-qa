@@ -179,7 +179,7 @@ streamlit run app.py
 Add a screenshot after running the application.
 
 ```
-screenshots/app.png
+"C:\Users\Lingam Kusuma\Pictures\Screenshots\app.png"
 ```
 
 Example:
@@ -282,10 +282,8 @@ python -m src.evaluate
 
 AI & Data Science Student
 
-GitHub:
+GitHub:https://github.com/komalilingam
 
-
-LinkedIn:
 
 
 ---
