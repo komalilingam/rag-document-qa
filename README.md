@@ -179,6 +179,7 @@ streamlit run app.py
 Add a screenshot after running the application.
 
 ![image alt](https://github.com/komalilingam/rag-document-qa/blob/c7a85e29dde41688cabea0500cfecb9cece487dd/app.png)
+![image alt](https://github.com/komalilingam/rag-document-qa/blob/051090c2b2596bbafdce82fbcb460bdbd3acbe5f/app%20(2).png)
 
 
 ## 📊 Evaluation
